@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Footer from "./Footer";
 import Form from "./Form";
 import GroceryList from "./GroceryList";
@@ -25,12 +26,18 @@ const groceryItems = [
 ];
 
 export default function App() {
+  const [items, setItems] = useState(groceryItems);
+
+  const handleAddItems = (item) => {
+    setItems([...items, item]);
+  };
+
   return (
     <>
       <div className="app">
         <Header />
-        <Form />
-        <GroceryList GroceryItems={groceryItems} />
+        <Form onAddItems={handleAddItems} />
+        <GroceryList items={items} />
         <Footer />
       </div>
     </>

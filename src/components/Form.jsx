@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Form = () => {
+const Form = ({ onAddItems }) => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -10,6 +10,7 @@ const Form = () => {
     if (!name) return;
 
     const newItem = { name, quantity, checked: false, id: Date.now() };
+    onAddItems(newItem);
 
     console.log(newItem);
 

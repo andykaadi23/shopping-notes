@@ -1,11 +1,11 @@
 import Item from "./Item";
 
-const GroceryList = ({ GroceryItems }) => {
+const GroceryList = ({ items }) => {
   return (
     <>
       <div className="list">
         <ul>
-          {GroceryItems.map((item) => (
+          {items.map((item) => (
             <Item item={item} key={item.id} />
           ))}
         </ul>
