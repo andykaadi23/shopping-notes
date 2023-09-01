@@ -32,12 +32,17 @@ export default function App() {
     setItems([...items, item]);
   };
 
+  const handleDeleteItems = (id) => {
+    const filterItems = items.filter((item) => item.id !== id);
+    setItems(filterItems);
+  };
+
   return (
     <>
       <div className="app">
         <Header />
         <Form onAddItems={handleAddItems} />
-        <GroceryList items={items} />
+        <GroceryList items={items} onDeleteItems={handleDeleteItems} />
         <Footer />
       </div>
     </>
