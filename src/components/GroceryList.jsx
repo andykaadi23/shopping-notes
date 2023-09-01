@@ -1,12 +1,17 @@
 import Item from "./Item";
 
-const GroceryList = ({ items, onDeleteItems }) => {
+const GroceryList = ({ items, onDeleteItems, onToggleItems }) => {
   return (
     <>
       <div className="list">
         <ul>
           {items.map((item) => (
-            <Item item={item} key={item.id} onDeleteItems={onDeleteItems} />
+            <Item
+              item={item}
+              key={item.id}
+              onDeleteItems={onDeleteItems}
+              onToggleItems={onToggleItems}
+            />
           ))}
         </ul>
       </div>

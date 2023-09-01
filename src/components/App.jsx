@@ -37,12 +37,23 @@ export default function App() {
     setItems(filterItems);
   };
 
+  const handleToggleItems = (id) => {
+    const toggleItems = items.map((item) =>
+      item.id === id ? { ...item, checked: !item.checked } : item
+    );
+    setItems(toggleItems);
+  };
+
   return (
     <>
       <div className="app">
         <Header />
         <Form onAddItems={handleAddItems} />
-        <GroceryList items={items} onDeleteItems={handleDeleteItems} />
+        <GroceryList
+          items={items}
+          onDeleteItems={handleDeleteItems}
+          onToggleItems={handleToggleItems}
+        />
         <Footer />
       </div>
     </>
