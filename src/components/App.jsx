@@ -44,6 +44,10 @@ export default function App() {
     setItems(toggleItems);
   };
 
+  const handleClearItems = () => {
+    setItems([]);
+  };
+
   return (
     <>
       <div className="app">
@@ -53,6 +57,7 @@ export default function App() {
           items={items}
           onDeleteItems={handleDeleteItems}
           onToggleItems={handleToggleItems}
+          onClearItems={handleClearItems}
         />
         <Footer />
       </div>
